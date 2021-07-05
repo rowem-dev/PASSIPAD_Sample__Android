@@ -1,0 +1,84 @@
+plugins {
+    id 'com.android.application'
+    id 'com.google.gms.google-services'
+}
+
+android {
+    signingConfigs {
+        DefaultConfig {
+        }
+    }
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        applicationId "com.rowem.passipadcloud"
+        minSdkVersion 23
+        targetSdkVersion 30
+        versionCode 3
+        versionName "0.0.3"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    flavorDimensions "type"
+
+    productFlavors {
+        dev {
+            dimension "type"
+            buildConfigField "String", "BASE_URL", "\"http://13.124.69.205:8081\""
+            buildConfigField "String", "CLIENT_URL", "\"http://13.124.69.205:8081\""
+        }
+
+        product {
+            dimension "type"
+            buildConfigField "String", "BASE_URL", "\"https://api.passipad.com\""
+            buildConfigField "String", "CLIENT_URL", "\"https://api.passipad.com\""
+        }
+    }
+
+    buildTypes {
+        debug {
+            debuggable true
+            minifyEnabled false
+        }
+        release {
+            debuggable false
+            minifyEnabled false
+//            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    android.applicationVariants.all { variant ->
+
+        variant.outputs.all {
+            def date = new Date()
+            def formattedDate = date.format('yyyyMMdd')
+            outputFileName = "PASSIPAD_Cloud_${variant.flavorName}_v${variant.versionName}_${variant.buildType.name}_${formattedDate}.apk"
+        }
+    }
+}
+
+dependencies {
+    //library project libs에 동일한게 있어서 에러발생 테스트동안엔 막는다. 발행해줄땐 밑에껄 막으면 됨.
+    implementation fileTree(dir: 'libs', include: ['*.jar', '.so'])
+
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    implementation 'androidx.appcompat:appcompat:1.3.0'
+    implementation 'com.google.android.material:material:1.3.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'com.google.code.gson:gson:2.8.6'
+
+    implementation 'androidx.biometric:biometric:1.1.0'
+
+    implementation 'com.google.firebase:firebase-messaging:22.0.0'
+
+    implementation 'org.greenrobot:eventbus:3.2.0'
+}

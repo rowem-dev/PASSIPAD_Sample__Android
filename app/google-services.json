@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "120841707469",
+    "project_id": "passipad-cloud-de6f2",
+    "storage_bucket": "passipad-cloud-de6f2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:120841707469:android:2a156abaafde15842f6e84",
+        "android_client_info": {
+          "package_name": "com.rowem.passipadcloud"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "120841707469-6pcff3p3kipvjb6mvtcvbk24e70mtlnr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC58s6Lu3MxaP_0rU8FU7s1tDcV5H0lgXk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "120841707469-6pcff3p3kipvjb6mvtcvbk24e70mtlnr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,83 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#ffffff">
+
+    <ImageButton
+        android:id="@+id/btn_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/close_but"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="16dp"
+        android:background="@android:color/transparent"/>
+
+    <TextView
+        android:id="@+id/bio_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/btn_close"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="생체인증"
+        android:textColor="#175389"
+        android:textSize="32dp"
+        android:layout_marginTop="37dp"/>
+
+    <TextView
+        android:id="@+id/bio_desc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/bio_title"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center_horizontal"
+        android:text="생체 인증 사용 여부를 선택하시면\n환경설정이 완료됩니다."
+        android:textSize="15dp"
+        android:textColor="#175389"/>
+
+    <ImageView
+        android:id="@+id/icon_bio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/biometrics_b_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bio_desc"
+        android:layout_marginTop="95dp"/>
+
+    <Button
+        android:id="@+id/btn_use_bio"
+        android:layout_width="155dp"
+        android:layout_height="55dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/icon_bio"
+        android:layout_marginTop="21dp"
+        android:background="@drawable/ripple_round_5dc1ff"
+        android:textSize="17dp"
+        android:textStyle="bold"
+        android:text="생체 인증 사용"
+        android:textColor="#5dc1ff"/>
+
+    <Button
+        android:id="@+id/btn_unused_bio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_line_999999"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="52dp"
+        android:text="생체 인증 사용 안함"
+        android:textSize="15dp"
+        android:outlineProvider="none"
+        android:minHeight="0dp"
+        android:paddingBottom="6dp"
+        android:textColor="#999999"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
