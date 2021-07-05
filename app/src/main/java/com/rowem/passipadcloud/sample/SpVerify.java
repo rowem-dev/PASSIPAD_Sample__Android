@@ -37,15 +37,7 @@ public class SpVerify {
 
     public void reqVerify(String base_url, String cus_id, String sign, String sign_text, String auth_token, final ApiListener<SpVerifyResponse> l) {
         if (TextUtils.isEmpty(base_url)) {
-//			base_url = "http://210.221.219.206:20000";
-//			base_url = "http://dosapi.kbsec.com/KBOneshotpad";
-//			base_url = "http://202.30.200.189:8088";
-//			base_url = "http://210.221.219.206:30003";
-//			base_url = "http://192.168.10.51:30003";		//테스트서버 (내부)
-//			base_url = "http://58.72.74.170:30003";			//테스트서버 (외부 접근가능 주소)
-//            base_url = "http://13.124.69.205:8081";         //AWS
-//           base_url = "http://192.168.10.24:8080";         //이부장님 로컬
-            base_url = BuildConfig.CLIENT_URL;// "http://210.116.91.137:8081";         //고객사
+            base_url = BuildConfig.CLIENT_URL;
         }
         String url = base_url + "/spin/spmng/verify";
 

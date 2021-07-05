@@ -37,15 +37,7 @@ public class SpEncKey {
 
     public void reqSpEncKey(String base_url, String cus_no, String used_type, String partner_code, final ApiListener<SpEncKeyResponse> l) {
         if (TextUtils.isEmpty(base_url)) {
-//			base_url = "http://210.221.219.206:20000";
-//			base_url = "http://dosapi.kbsec.com/KBOneshotpad";
-//			base_url = "http://202.30.200.189:8088";
-//			base_url = "http://210.221.219.206:30003";
-//			base_url = "http://192.168.10.51:30003";		//테스트서버 (내부)
-//			base_url = "http://58.72.74.170:30003";			//테스트서버 (외부 접근가능 주소)
-//            base_url = "http://13.124.69.205:8081";         //AWS
-//            base_url = "http://192.168.10.24:8080";         //이부장님 로컬
-            base_url = BuildConfig.BASE_URL;//"http://13.124.69.205:8081";         //이석주 로컬
+            base_url = BuildConfig.BASE_URL;
         }
         String url = base_url + "/spin/spmng/reqSpEncKey";
 
