@@ -46,6 +46,9 @@ public class SpEncKey {
             jsonObj.putOpt("cus_no", cus_no);
             jsonObj.putOpt("used_type", used_type);
             jsonObj.putOpt("app_type", partner_code);
+
+            // 시크릿키는 단말에서 사용 금지. 서버간의 통신에서만 사용바랍니다.
+            jsonObj.putOpt("secret_key", "8fn5FyOOA0MbsJ8XhthHY51xe7abqDVW");
         } catch (Exception e) {
             if (MLog.PRINT_LOG) {
                 e.printStackTrace();

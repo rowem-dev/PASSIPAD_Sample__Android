@@ -46,7 +46,8 @@ public class HomeActivity extends AppCompatActivity {
 
         OneShotPadManager.getInstance().setBaseUrl(BuildConfig.BASE_URL);
         SPinManager.getInstance().initPushToken(this, false);
-        RSACryptor.getInstance().init(this);
+        // hyune - 10/20/21 삭제
+//        RSACryptor.getInstance().init(this);
 
         initView();
 

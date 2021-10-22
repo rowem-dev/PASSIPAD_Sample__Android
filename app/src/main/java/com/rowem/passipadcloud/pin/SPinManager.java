@@ -231,7 +231,7 @@ public class SPinManager extends Handler {
 
                         // 서명값 리턴이 없어도 비밀번호 변경 로직은 유지
                         if (OneShotPadManager.USED_TYPE_CHANGE_PWD.equals(mPushInfo.used_type)) { // 비밀번호 변경
-                            showChangePwdPinpadDialog(ctx, cus_id, mPushInfo, res.sign, res.sign_text);
+                            showChangePwdPinpadDialog(ctx, cus_id, mPushInfo, res.sign, res.sign_text, res.public_path);
                         } else if (OneShotPadManager.USED_TYPE_JOIN_BIO_AUTH.equals(mPushInfo.used_type)) {
                             showBioJoinPinpadDialog(ctx, mPushInfo, cus_id, res.sign, signData);
                         }else {
@@ -241,7 +241,7 @@ public class SPinManager extends Handler {
                                     //Toast.makeText(ctx,"검증 성공",Toast.LENGTH_LONG).show();
                                     // 비밀번호 변경
                                     if (OneShotPadManager.USED_TYPE_CHANGE_PWD.equals(mPushInfo.used_type)) { // 비밀번호 변경
-                                        showChangePwdPinpadDialog(ctx, cus_id, mPushInfo, res.sign, res.sign_text);
+                                        showChangePwdPinpadDialog(ctx, cus_id, mPushInfo, res.sign, res.sign_text, res.public_path);
                                     } else {
                                         showToast(ctx, res);
                                     }
@@ -318,7 +318,7 @@ public class SPinManager extends Handler {
                         } else {
                             // 서명값 리턴이 없어도 비밀번호 변경 로직은 유지
                             if (OneShotPadManager.USED_TYPE_CHANGE_PWD.equals(mPushInfo.used_type)) { // 비밀번호 변경
-                                showChangePwdPinpadDialog(ctx, cus_id, mPushInfo, res.sign, res.sign_text);
+                                showChangePwdPinpadDialog(ctx, cus_id, mPushInfo, res.sign, res.sign_text, res.public_path);
                             } else {
 
                             }
@@ -361,7 +361,7 @@ public class SPinManager extends Handler {
      * @param pwd
      * @param push_info
      */
-    private void reqChangePwd(final Context ctx, String pwd, String cus_id, final PushInfo push_info, String sign, String sign_text, final OneShotPadListener<DataResponse> listener) {
+    private void reqChangePwd(final Context ctx, String pwd, String cus_id, final PushInfo push_info, String sign, String sign_text, String public_path, final OneShotPadListener<DataResponse> listener) {
         OneShotPadListener<DataResponse> l = res -> {
             // 결과 값 반환
             BaseResponse.printLog(res);
@@ -386,7 +386,7 @@ public class SPinManager extends Handler {
                 }
             }
         };
-        OneShotPadManager.getInstance().reqChangePwdEx(ctx, pwd, cus_id, push_info, sign, sign_text, l);
+        OneShotPadManager.getInstance().reqChangePwdEx(ctx, pwd, cus_id, push_info, sign, sign_text, public_path, l);
     }
 
     /**
@@ -599,7 +599,7 @@ public class SPinManager extends Handler {
     /**
      * 비밀번호 변경 핀패드
      */
-    private void showChangePwdPinpadDialog(final Context ctx, final String cus_id, final PushInfo push_info, final String sign, final String sign_text) {
+    private void showChangePwdPinpadDialog(final Context ctx, final String cus_id, final PushInfo push_info, final String sign, final String sign_text, final String public_path) {
         PinpadDialog.OnInputListener l = new PinpadDialog.OnInputListener() {
             @Override
             public void onStep1Finished(PinpadDialog dlg) {
@@ -625,7 +625,7 @@ public class SPinManager extends Handler {
 
             @Override
             public void onInputPw(PinpadDialog dlg, String pw, boolean useBio) {
-                reqChangePwd(ctx, pw, cus_id, push_info, sign, sign_text, dataResponse -> {
+                reqChangePwd(ctx, pw, cus_id, push_info, sign, sign_text, public_path, dataResponse -> {
                     switch (dataResponse.code){
                         case BaseResponse.CD_AUTH_FAIL:
                         case BaseResponse.CD_SUB_AUTH_FAIL:
