@@ -2,13 +2,9 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:drawable="@android:color/white"/>
     <item android:drawable="@drawable/intro_logo"
-        android:width="93dp"
-        android:height="95dp"
-        android:top="180dp"
-        android:gravity="center_horizontal|top"/>
-    <item android:drawable="@drawable/rowem_s_logo"
-        android:width="61dp"
-        android:height="12dp"
+        android:bottom="90dp"
+        android:gravity="center"/>
+   <item android:drawable="@drawable/rowem_s_logo"
         android:bottom="90dp"
         android:gravity="center_horizontal|bottom"/>
 </layer-list>

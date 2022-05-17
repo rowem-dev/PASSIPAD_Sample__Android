@@ -15,8 +15,8 @@ android {
         applicationId "com.rowem.passipadcloud"
         minSdkVersion 23
         targetSdkVersion 30
-        versionCode 4
-        versionName "0.0.4"
+        versionCode 5
+        versionName "0.0.5"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -32,8 +32,8 @@ android {
 
         product {
             dimension "type"
-            buildConfigField "String", "BASE_URL", "\"https://api.passipad.com\""
-            buildConfigField "String", "CLIENT_URL", "\"https://api.passipad.com\""
+            buildConfigField "String", "BASE_URL", "\"https://api.enterprise.ifree.world\""
+            buildConfigField "String", "CLIENT_URL", "\"https://api.enterprise.ifree.world\""
         }
     }
 

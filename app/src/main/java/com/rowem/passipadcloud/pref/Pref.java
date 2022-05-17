@@ -8,6 +8,7 @@ public class Pref {
 
     private final String KEY_CUS_ID = "CUS_ID";
     private final String KEY_PARTNER_CODE = "PARTNER_CODE";
+    private final String KEY_SECRET_KEY = "SECRET_KEY";
     private final String KEY_PUSH_TOKEN = "PUSH_TOKEN";
     private final String KEY_USE_BIO = "USE_BIO";
 
@@ -57,6 +58,16 @@ public class Pref {
 
     public String getPartnerCode() {
         return mPreferences.getString(KEY_PARTNER_CODE, null);
+    }
+
+    /** SECRET_KEY */
+
+    public void setSecretKey(String secretKey){
+        getEditor().putString(KEY_SECRET_KEY, secretKey).apply();
+    }
+
+    public String getSecretKey() {
+        return mPreferences.getString(KEY_SECRET_KEY, null);
     }
 
     /** USE_BIO */

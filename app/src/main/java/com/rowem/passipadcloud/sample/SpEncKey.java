@@ -35,7 +35,7 @@ public class SpEncKey {
         return mInstance;
     }
 
-    public void reqSpEncKey(String base_url, String cus_no, String used_type, String partner_code, final ApiListener<SpEncKeyResponse> l) {
+    public void reqSpEncKey(String base_url, String cus_no, String used_type, String partner_code, String secret_key, final ApiListener<SpEncKeyResponse> l) {
         if (TextUtils.isEmpty(base_url)) {
             base_url = BuildConfig.BASE_URL;
         }
@@ -48,7 +48,7 @@ public class SpEncKey {
             jsonObj.putOpt("app_type", partner_code);
 
             // 시크릿키는 단말에서 사용 금지. 서버간의 통신에서만 사용바랍니다.
-            jsonObj.putOpt("secret_key", "8fn5FyOOA0MbsJ8XhthHY51xe7abqDVW");
+            jsonObj.putOpt("secret_key", secret_key);
         } catch (Exception e) {
             if (MLog.PRINT_LOG) {
                 e.printStackTrace();
